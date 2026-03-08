@@ -5,6 +5,8 @@ export default async function handler(req, res) {
 
   try {
     const { id, email, password, role, nombre, rfc } = req.body;
+    const SUPABASE_URL = process.env.SUPABASE_URL;
+    const SUPABASE_SECRET_KEY = process.env.SUPABASE_SECRET_KEY;
 
     const body = {
       email,
@@ -12,12 +14,12 @@ export default async function handler(req, res) {
     };
     if (password) body.password = password;
 
-    const response = await fetch(`https://kyxedjejepgfxynfzxfi.supabase.co/auth/v1/admin/users/${id}`, {
+    const response = await fetch(`${SUPABASE_URL}/auth/v1/admin/users/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'apikey': 'sb_secret_9gx5voEieu9xvBW7RcC6hA_wLC1fh_5',
-        'Authorization': 'Bearer sb_secret_9gx5voEieu9xvBW7RcC6hA_wLC1fh_5'
+        'apikey': SUPABASE_SECRET_KEY,
+        'Authorization': `Bearer ${SUPABASE_SECRET_KEY}`
       },
       body: JSON.stringify(body)
     });
