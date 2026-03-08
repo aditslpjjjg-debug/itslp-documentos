@@ -258,8 +258,10 @@
       width: 50px; height: 50px; border-radius: 12px;
       background: linear-gradient(135deg, var(--azul), var(--azul-medio));
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem; flex-shrink: 0;
+      font-size: 1.3rem; flex-shrink: 0; color: white;
+      filter: drop-shadow(0 0 0 white);
     }
+    .stat-icon svg, .stat-icon span { color: white; }
     .stat-val { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.6rem; color: var(--azul-oscuro); }
     .stat-label { font-size: 0.75rem; color: var(--gris-texto); font-weight: 600; }
 
@@ -780,7 +782,7 @@ function renderDashboard() {
       <div><div class="stat-val">${periodos}</div><div class="stat-label">Periodos Activos</div></div>
     </div>
     <div class="stat-card">
-      <div class="stat-icon">👤</div>
+      <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
       <div><div class="stat-val">${state.role}</div><div class="stat-label">Tu Perfil de Acceso</div></div>
     </div>
   </div>
