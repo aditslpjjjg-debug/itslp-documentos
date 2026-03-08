@@ -5,13 +5,15 @@ export default async function handler(req, res) {
 
   try {
     const { email, password, role, nombre, rfc } = req.body;
+    const SUPABASE_URL = process.env.SUPABASE_URL;
+    const SUPABASE_SECRET_KEY = process.env.SUPABASE_SECRET_KEY;
 
-    const response = await fetch('https://kyxedjejepgfxynfzxfi.supabase.co/auth/v1/admin/users', {
+    const response = await fetch(`${SUPABASE_URL}/auth/v1/admin/users`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'apikey': 'sb_secret_9gx5voEieu9xvBW7RcC6hA_wLC1fh_5',
-        'Authorization': 'Bearer sb_secret_9gx5voEieu9xvBW7RcC6hA_wLC1fh_5'
+        'apikey': SUPABASE_SECRET_KEY,
+        'Authorization': `Bearer ${SUPABASE_SECRET_KEY}`
       },
       body: JSON.stringify({
         email,
